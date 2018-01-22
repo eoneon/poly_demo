@@ -1,0 +1,2 @@
+class EditionType < Element
+end

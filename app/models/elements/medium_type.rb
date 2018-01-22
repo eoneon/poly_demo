@@ -1,0 +1,2 @@
+class MediumType < Element
+end
