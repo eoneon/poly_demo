@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Elements</h1>
+<h1>Elements!</h1>
 <% if @elements.empty? %>
   <p><strong>No Elements</strong></p>
 <% end %>
-
 <!-- <h4>Export Elements</h4>
 <p>
   Download:
@@ -23,7 +22,9 @@
     <th>Element</th>
   </thead>
   <tbody>
-    <%= render @elements.all %>
+    <% @elements.each do |element| %>
+    <%= render 'elements/element', element: element %>
+    <% end %>
   <tbody>
 </table>
 

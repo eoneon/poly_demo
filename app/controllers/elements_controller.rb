@@ -1,6 +1,6 @@
 class ElementsController < ApplicationController
   def index
-    @elements = Element.all
+    @elements = element_type.all
   end
 
   def show
@@ -58,6 +58,14 @@ class ElementsController < ApplicationController
   end
 
   private
+
+  def element_types
+    ["EditionType", "MediumType"]
+  end
+
+  def element_type
+    params[:type].constantize if params[:type].in? element_types
+  end
 
   def element_params
     params.require(:element).permit!
