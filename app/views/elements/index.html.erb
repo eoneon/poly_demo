@@ -16,7 +16,6 @@
   <%#= file_field_tag :file %>
   <%#= submit_tag "Import" %>
 <%# end %> -->
-
 <table class="table table-striped">
   <thead>
     <th>Element</th>
@@ -30,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Element', new_element_path %>
+<%= link_to 'New Element', [:new, @elements.first.class.to_s.underscore.to_sym] %> <!--:edition_type-->

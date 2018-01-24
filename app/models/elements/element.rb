@@ -7,4 +7,8 @@ class Element < ApplicationRecord
   def elementable_type=(sType)
      super(sType.to_s.classify.constantize.base_class.to_s)
   end
+
+  def element_names
+    self.elementable_type.constantize.all
+  end
 end

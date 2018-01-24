@@ -68,6 +68,6 @@ class ElementsController < ApplicationController
   end
 
   def element_params
-    params.require(:element).permit!
+    params.require(:element).permit! #(:name, :type) 
   end
 end

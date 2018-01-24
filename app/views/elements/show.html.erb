@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @element.class.to_s %>: <%= @element.name %></h2>
+<h2><%= @element.class.to_s.pluralize.underscore.to_sym %>: <%= @element.name %></h2>
 
 <%= link_to 'Edit', [:edit, @element] %> |
-<%= link_to 'Back', :edition_types %>
-
-<!-- <div>
-  <h4>Media List</h4>
-  <%#= render 'elements/media/medium', medium: @element.media.all %>
-</div> -->
+<%= link_to 'Back', @element.class.to_s.pluralize.underscore.to_sym %>
