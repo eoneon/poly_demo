@@ -1,0 +1,2 @@
+class ElementField < ApplicationRecord
+end

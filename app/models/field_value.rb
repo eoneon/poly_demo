@@ -1,0 +1,2 @@
+class FieldValue < ApplicationRecord
+end

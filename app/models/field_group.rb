@@ -1,0 +1,2 @@
+class FieldGroup < ApplicationRecord
+end

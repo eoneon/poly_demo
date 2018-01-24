@@ -1,0 +1,2 @@
+class ValueGroup < ApplicationRecord
+end
