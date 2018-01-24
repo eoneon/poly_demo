@@ -1,4 +1,4 @@
 <tr>
     <td><%= element.name %></td>
-    <td><%= link_to 'show', element_path(element) %> | <%= link_to 'Edit', edit_element_path(element) %> | <%= link_to 'Delete', element, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [element] %> | <%= link_to 'Edit', [:edit, element] %> | <%= link_to 'Delete', element, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>

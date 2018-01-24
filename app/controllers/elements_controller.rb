@@ -4,31 +4,31 @@ class ElementsController < ApplicationController
   end
 
   def show
-    @element = Element.find(params[:id])
+    @element = element_type.find(params[:id])
   end
 
   def new
-    @element = Element.new #(sub_element_ids: params[:sub_element_ids])
+    @element = element_type.new #(sub_element_ids: params[:sub_element_ids])
   end
 
   def edit
-    @element = Element.find(params[:id])
+    @element = element_type.find(params[:id])
   end
 
   def create
-    @element = Element.new(element_params)
+    @element = element_type.new(element_params)
 
     if @element.save
-      flash[:notice] = "Element was saved successfully."
+      flash[:notice] = "element_type was saved successfully."
       redirect_to @element
     else
-      flash.now[:alert] = "Error creating Element. Please try again."
+      flash.now[:alert] = "Error creating element_type. Please try again."
       render :edit
     end
   end
 
   def update
-    @element = Element.find(params[:id])
+    @element = element_type.find(params[:id])
     @element.assign_attributes(element_params)
 
     if @element.save
@@ -41,15 +41,15 @@ class ElementsController < ApplicationController
   end
 
   def import
-    Element.import(params[:file])
-    redirect_to elements_path, notice: 'Element imported.'
+    element_type.import(params[:file])
+    redirect_to elements_path, notice: 'element_type imported.'
   end
 
   def destroy
-    @element = Element.find(params[:id])
+    @element = element_type.find(params[:id])
 
     if @element.destroy
-      flash[:notice] = "\"#{@element.name}\" was deleted successfully."
+      flash[:notice] = "\"#{@element.name}\" was deleted successfully"
       redirect_to action: :index
     else
       flash.now[:alert] = "There was an error deleting the element."
