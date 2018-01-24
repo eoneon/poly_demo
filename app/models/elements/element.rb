@@ -3,6 +3,7 @@ class Element < ApplicationRecord
   has_many :sub_elements, through: :element_groups
   accepts_nested_attributes_for :element_groups, reject_if: proc {|attrs| attrs['sub_element_id'].blank?}, allow_destroy: true
   validates :name, presence: true
+  #delegate :sub_element_ids, :to => :sub_elements
 
   def elementable_type=(sType)
      super(sType.to_s.classify.constantize.base_class.to_s)
