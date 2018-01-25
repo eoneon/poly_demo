@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125043250) do
+ActiveRecord::Schema.define(version: 20180125221003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,6 @@ ActiveRecord::Schema.define(version: 20180125043250) do
     t.bigint "sub_element_id"
     t.index ["elementable_type", "elementable_id"], name: "index_element_groups_on_elementable_type_and_elementable_id"
     t.index ["sub_element_id"], name: "index_element_groups_on_sub_element_id"
-  end
-
-  create_table "element_twos", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "elements", force: :cascade do |t|
