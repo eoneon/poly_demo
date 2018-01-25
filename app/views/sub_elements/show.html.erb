@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sub Elements:</strong>
+  <%= @sub_element.name %>
+</p>
+
+<%= link_to 'Edit', edit_sub_element_path(@sub_element) %> |
+<%= link_to 'Back', sub_elements_path %>
+
+<div>
+  <h4>Field List</h4>
+  <%= render 'sub_elements/element_field' %>
+</div>

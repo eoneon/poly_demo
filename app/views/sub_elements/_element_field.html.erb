@@ -1,0 +1,5 @@
+<div class="xs-col-1">
+  <% @sub_element.element_fields.all.each do |element_field| %>
+    <p><%= link_to element_field.name, edit_element_field_path(element_field) %></p>
+  <% end %>
+</div>
