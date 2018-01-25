@@ -1,0 +1,24 @@
+<%= form_for parent do |f| %>
+<%= parent.field_values.map {|value| value.name } %>
+  <div class="field">
+    <%= f.label :field_type %><br>
+    <%= f.select :field_type, %w[text_field check_box number_field text_area], include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="field">
+        <%= hidden_field_tag "element_field[field_value_ids][]", nil %>
+        <% ItemValue.all.each do |field_value| %>
+          <br>
+          <%= check_box_tag "element_field[field_value_ids][]", field_value.id, parent.field_value_ids.include?(field_value.id), id: dom_id(field_value) %>
+          <%= label_tag dom_id(field_value), field_value.name %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit "Save" %>
+<% end %>

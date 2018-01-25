@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Field Name List</h1>
+<% if @element_fields.empty? %>
+  <p><strong>No Fields</strong></p>
+<% end %>
+
+<h2>Export Fields</h2>
+<p>
+  Download:
+  <%= link_to "CSV", element_fields_path(format: "csv") %> |
+  <%= link_to "Excel", element_fields_path(format: "xls") %>
+</p>
+
+<h2>Import Fields</h2>
+<%= form_tag import_element_fields_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<table id="element_fields">
+  <tr>
+    <th>id</th>
+    <th>element_field</th>
+  </tr>
+  <% @element_fields.each do |element_field| %>
+    <tr>
+      <td><%= element_field.id %></td>
+      <td><%= element_field.name %></td>
+      <td><%= link_to 'show', element_field_path(element_field) %> | <%= link_to 'Edit', edit_element_field_path(element_field) %> | <%= link_to 'Delete', element_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+
+<%= link_to 'New Field', new_element_field_path %>
