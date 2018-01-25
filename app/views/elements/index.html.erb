@@ -4,6 +4,7 @@
 <% if @elements.empty? %>
   <p><strong>No Elements</strong></p>
 <% end %>
+
 <!-- <h4>Export Elements</h4>
 <p>
   Download:
@@ -28,5 +29,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Element', [:new, @elements.first.class.to_s.underscore.to_sym] %> <!--:edition_type-->
+<%= link_to 'New Element', [:new, relation_to_class(@elements)] %>

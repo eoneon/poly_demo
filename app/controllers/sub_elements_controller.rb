@@ -49,7 +49,7 @@ class SubElementsController < ApplicationController
     @sub_element = SubElement.find(params[:id])
 
     if @sub_element.destroy
-      flash[:notice] = "\"#{@sub_element.sub_element}\" was deleted successfully."
+      flash[:notice] = "\"#{@sub_element.name}\" was deleted successfully."
       redirect_to action: :index
     else
       flash.now[:alert] = "There was an error deleting the sub_element."

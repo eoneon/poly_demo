@@ -1,9 +1,9 @@
 class SubElement < ApplicationRecord
-  has_many :element_groups
+  has_many :element_groups, dependent: :destroy
   has_many :edition_types, through: :element_groups, source: :elementable, source_type: 'Element'
   has_many :medium_types, through: :element_groups, source: :elementable, source_type: 'Element'
 
-  has_many :field_groups
+  has_many :field_groups, dependent: :destroy
   has_many :element_fields, through: :field_groups
 
   accepts_nested_attributes_for :field_groups, reject_if: proc {|attrs| attrs['element_field_id'].blank?}, allow_destroy: true
