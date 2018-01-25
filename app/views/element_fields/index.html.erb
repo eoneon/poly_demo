@@ -4,7 +4,7 @@
 <% if @element_fields.empty? %>
   <p><strong>No Fields</strong></p>
 <% end %>
-<%= ElementField.get_class %>
+
 <h2>Export Fields</h2>
 <p>
   Download:
@@ -26,7 +26,9 @@
   <% @element_fields.each do |element_field| %>
     <tr>
       <td><%= element_field.id %></td>
+      <td><%= element_field.kind %></td>
       <td><%= element_field.name %></td>
+      <td><%= element_field.field_type %></td>
       <td><%= link_to 'show', element_field_path(element_field) %> | <%= link_to 'Edit', edit_element_field_path(element_field) %> | <%= link_to 'Delete', element_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>

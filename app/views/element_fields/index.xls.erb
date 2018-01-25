@@ -13,7 +13,9 @@
     <% @element_field.each do |element_field| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= element_field.id %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= element_field.element_field %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= element_field.kind %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= element_field.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= element_field.field_type %></Data></Cell>
       </Row>
     <% end %>
     </Table>
