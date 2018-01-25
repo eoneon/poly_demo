@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Field Value List</h1>
+<h1>Field Values</h1>
 <% if @field_values.empty? %>
   <p><strong>No Field Value</strong></p>
 <% end %>
 
-<h2>Export Field Value</h2>
+<h4>Export Field Values</h4>
 <p>
   Download:
   <%= link_to "CSV", field_values_path(format: "csv") %> |
   <%= link_to "Excel", field_values_path(format: "xls") %>
 </p>
 
-<h2>Import Field Value</h2>
+<h4>Import Field Value</h4>
 <%= form_tag import_field_values_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
