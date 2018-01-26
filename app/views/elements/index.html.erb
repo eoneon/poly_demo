@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Elements!</h1>
+<!-- <h1><%#= @elements.klass.to_s.pluralize.humanize %></h1> -->
+<h1><%= class_to_string(@elements) %></h1>
 <% if @elements.empty? %>
   <p><strong>No Elements</strong></p>
 <% end %>
