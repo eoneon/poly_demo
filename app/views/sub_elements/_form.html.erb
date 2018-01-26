@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-md-2">
       <%= f.fields_for :field_groups do |builder| %>
-        <%= render 'sub_elements/field_group_fields', f: builder %>
+        <%= render 'sub_elements/field_group_fields', f: builder, parent: @sub_element %>
       <% end %>
       <%= link_to_add_fields "Add Field", f, :field_groups, "sub_elements" %>
     </div>

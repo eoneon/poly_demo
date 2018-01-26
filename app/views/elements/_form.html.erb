@@ -10,7 +10,6 @@
       <%= f.fields_for :element_groups do |builder| %>
         <%= render 'elements/element_group_fields', f: builder %>
       <% end %>
-      <!-- last argument subclass or base? -->
       <%= link_to_add_fields "Add Field", f, :element_groups, "elements" %>
     </div>
   </div>

@@ -30,4 +30,4 @@
 </table>
 
 <br>
-<%= link_to 'New Element', [:new, relation_to_class(@elements)] %>
+<%= link_to "New #{class_to_string(@elements)}", [:new, relation_to_class(@elements)] %>
