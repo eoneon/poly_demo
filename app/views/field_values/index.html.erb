@@ -26,8 +26,9 @@
   <% @field_values.each do |field_value| %>
     <tr>
       <td><%= field_value.id %></td>
-      <td><%= field_value.kind %></td>
       <td><%= field_value.name %></td>
+      <td><%= field_value.kind %></td>
+      <td><%= field_value.sub_kind %></td>
       <td><%= link_to 'show', field_value_path(field_value) %> | <%= link_to 'Edit', edit_field_value_path(field_value) %> | <%= link_to 'Delete', field_value, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
