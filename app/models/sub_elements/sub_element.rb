@@ -15,4 +15,8 @@ class SubElement < ApplicationRecord
   def sub_parent
     element.name
   end
+
+  def subable_type=(sType)
+     super(sType.to_s.classify.constantize.base_class.to_s)
+  end
 end
