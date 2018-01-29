@@ -1,7 +1,8 @@
 class SubElement < ApplicationRecord
   include Importable
 
-  has_many :element_groups, dependent: :destroy
+  has_many :element_groups, as: :subable, dependent: :destroy
+  #has_many :element_groups, dependent: :destroy
   has_many :edition_types, through: :element_groups, source: :elementable, source_type: 'Element'
   has_many :medium_types, through: :element_groups, source: :elementable, source_type: 'Element'
 
