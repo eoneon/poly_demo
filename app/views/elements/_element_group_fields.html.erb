@@ -1,6 +1,10 @@
 <fieldset>
+  <%= f.label :category_name %><br>
+  <%= f.select :kind, options_for_select(@element.name.split("_")), include_blank: true %>
   <%= f.label :sub_element_name %><br>
   <%= f.collection_select( :sub_element_id, SubElement.all, :id, :name, include_blank: true) %>
+
+  <%#= f.collection_select( :sub_element_id, SubElement.where(kind: "mounting"), :id, :name, include_blank: true) %>
   <%= f.hidden_field :sub_element_ids %>
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>

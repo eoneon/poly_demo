@@ -15,4 +15,8 @@ module ApplicationHelper
   def class_to_string(class_name)
     class_name.klass.to_s.underscore.humanize.pluralize
   end
+
+  def categories
+    ["mounting", "embellish", "artwork", "medium", "substrate", "medium2"]
+  end
 end
