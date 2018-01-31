@@ -18,18 +18,21 @@
   <%= submit_tag "Import" %>
 <% end %>
 
-<table id="sub_elements">
-  <tr>
-    <th>id</th>
-    <th>sub_element</th>
-  </tr>
+<table class="table table-striped">
+  <thead>
+    <th>Sub Elements</th>
+  </thead>
+  <tbody>
   <% @sub_elements.each do |sub_element| %>
     <tr>
       <td><%= sub_element.id %></td>
       <td><%= sub_element.name %></td>
+      <td><%= sub_element.kind %></td>
+      <td><%= sub_element.sub_kind %></td>
       <td><%= link_to 'show', sub_element_path(sub_element) %> | <%= link_to 'Edit', edit_sub_element_path(sub_element) %> | <%= link_to 'Delete', sub_element, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
+  <tbody>
 </table>
 <br>
 
