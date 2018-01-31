@@ -64,10 +64,14 @@ class ElementsController < ApplicationController
   end
 
   def element_type
-    params[:type].constantize if params[:type].in? element_types
+    if params[:type].in? element_types
+      params[:type].constantize
+    elsif ["Element"]
+      Element
+    end
   end
 
   def element_params
-    params.require(:element).permit! #(:name, :type) 
+    params.require(:element).permit!
   end
 end

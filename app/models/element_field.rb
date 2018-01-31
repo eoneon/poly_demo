@@ -1,5 +1,6 @@
 class ElementField < ApplicationRecord
   include Importable
+  
   has_many :field_groups, dependent: :destroy
   has_many :sub_elements, through: :field_groups
 

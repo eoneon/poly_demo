@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   resources :element_fields
   resources :field_values
 
+  resources :elements do
+    collection do
+      post :import
+    end
+  end
+
   resources :sub_elements do
     collection do
       post :import
@@ -24,5 +30,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'elements#index'
+  root to: 'elements_path#index'
 end

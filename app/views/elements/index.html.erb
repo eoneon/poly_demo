@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<!-- <h1><%#= @elements.klass.to_s.pluralize.humanize %></h1> -->
+<h1><%#= @elements.klass.to_s.pluralize.humanize %></h1>
 <h1><%= class_to_string(@elements) %></h1>
 <% if @elements.empty? %>
   <p><strong>No Elements</strong></p>
 <% end %>
 
-<!-- <h4>Export Elements</h4>
+<h4>Export Elements</h4>
 <p>
   Download:
-  <%#= link_to "CSV", elements_path(format: "csv") %> |
-  <%#= link_to "Excel", elements_path(format: "xls") %>
-</p> -->
+  <%= link_to "CSV", elements_path(format: "csv") %> |
+  <%= link_to "Excel", elements_path(format: "xls") %>
+</p>
 
-<!-- <h4>Import Item Types</h4>
-<%#= form_tag import_elements_path, multipart: true do %>
-  <%#= file_field_tag :file %>
-  <%#= submit_tag "Import" %>
-<%# end %> -->
+<h4>Import Item Types</h4>
+<%= form_tag import_elements_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
 <table class="table table-striped">
   <thead>
     <th>Element</th>
