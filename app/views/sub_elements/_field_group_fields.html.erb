@@ -1,7 +1,7 @@
 <fieldset>
   <%= f.label :field_name %><br>
   <%#= f.collection_select( :element_field_id, ElementField.all, :id, :name, include_blank: true) %>
-  <%= f.collection_select( :element_field_id, ElementField.where(kind: @sub_element.name), :id, :name, include_blank: true) %>
+  <%= f.collection_select( :element_field_id, ElementField.where(kind: @sub_element.sub_kind), :id, :name, include_blank: true) %>
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>
 </fieldset>
