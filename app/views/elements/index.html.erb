@@ -20,13 +20,16 @@
 <% end %>
 <table class="table table-striped">
   <thead>
-    <th>Element</th>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+    </tr>
   </thead>
   <tbody>
     <% @elements.each do |element| %>
     <%= render 'elements/element', element: element %>
     <% end %>
-  <tbody>
+  </tbody>
 </table>
 
 <br>
