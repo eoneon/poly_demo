@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180131030059) do
+ActiveRecord::Schema.define(version: 20180131160614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "element_fields", force: :cascade do |t|
     t.string "name"
@@ -39,6 +40,8 @@ ActiveRecord::Schema.define(version: 20180131030059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "type"
+    t.hstore "properties"
+    t.index ["properties"], name: "index_elements_on_properties", using: :gist
   end
 
   create_table "field_groups", force: :cascade do |t|
