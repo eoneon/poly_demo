@@ -1,0 +1,39 @@
+<%= form_for @item, :html => {:id => 'item_form'} do |f| %>
+  <%= render "items/hidden", f: f %>
+  <script type="text/javascript">
+    function submitform(){
+      $('#redirect_location').val(':edit');
+      $('#item_form').submit();
+    }
+  </script>
+  <script type="text/javascript">
+    function reload(){
+      var item_type_id = $('#selectItemtype').val();
+      $('#item_item_type_id').val('item_type_id');
+    }
+  </script>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.label :sku %><br>
+      <%= f.text_field :sku %>
+    </div>
+
+    <div class="col-md-2">
+      <%= f.label :retail %><br>
+      <%= f.text_field :retail %>
+    </div>
+  </div><br>
+
+  <div class="col-md-12">
+    <h4>Properties for Items:</h4>
+    <% if @item.itemizable.present? %>
+    <%# @item.itemizable.sub_elements.each do |element| %>
+      <%# element.element_fields.each do |field| %>
+        <%#= render 'elements/properties', f: f, parent: @item, field: field %>
+      <%# end %>
+    <% end %>
+  </div>
+  <%#= render "items/properties", parent: @item, f: f %>
+  <%= f.submit "Save" %>
+<% end %>

@@ -32,7 +32,6 @@
       <td><%= sub_element.name %></td>
       <td><%= sub_element.kind %></td>
       <td><%= sub_element.sub_kind %></td>
-      <td><%= sub_element.index_of_parent_name %></td>
       <td><%= link_to 'show', sub_element_path(sub_element) %> | <%= link_to 'Edit', edit_sub_element_path(sub_element) %> | <%= link_to 'Delete', sub_element, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>

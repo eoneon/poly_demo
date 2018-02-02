@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   resources :elements
   resources :edition_types, controller: "elements", type: "EditionType"
   resources :medium_types, controller: "elements", type: "MediumType"

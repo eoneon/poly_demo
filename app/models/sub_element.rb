@@ -16,7 +16,7 @@ class SubElement < ApplicationRecord
     element.name
   end
 
-  def index_of_parent_name
-    medium_types.first.name.split("_").index(name) if medium_types.present?
-  end
+  # def index_of_parent_name
+  #   medium_types.first.name.split("_").index(name) if medium_types.present?
+  # end
 end

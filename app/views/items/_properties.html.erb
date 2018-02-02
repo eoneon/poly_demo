@@ -1,0 +1,5 @@
+<%= f.fields_for :properties, OpenStruct.new(parent.properties) do |builder| %>
+  <% unless element_field.field_type.blank? %>
+    <%= render "elements/element_fields/#{element_field.field_type}.html.erb", parent: parent, field: element_field, f: builder %>
+  <% end %>
+<% end %>
