@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201173731) do
+ActiveRecord::Schema.define(version: 20180202012907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,18 @@ ActiveRecord::Schema.define(version: 20180201173731) do
     t.datetime "updated_at", null: false
     t.string "kind"
     t.string "sub_kind"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.hstore "properties"
+    t.integer "sku"
+    t.integer "retail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "itemizable_type"
+    t.bigint "itemizable_id"
+    t.index ["itemizable_type", "itemizable_id"], name: "index_items_on_itemizable_type_and_itemizable_id"
+    t.index ["properties"], name: "index_items_on_properties", using: :gist
   end
 
   create_table "sub_elements", force: :cascade do |t|

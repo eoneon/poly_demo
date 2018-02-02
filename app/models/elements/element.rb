@@ -1,6 +1,8 @@
 class Element < ApplicationRecord
   include Importable
 
+  has_many :items, as: :itemizable
+  #has_many :elements, as: :elementable
   has_many :element_groups, as: :elementable
   has_many :sub_elements, through: :element_groups
 
