@@ -17,6 +17,10 @@ module ApplicationHelper
   end
 
   def categories
+    ["mounting", "medium", "edition", "signature", "certificate"]
+  end
+
+  def sub_categories
     ["mounting", "embellish", "artwork", "medium", "substrate", "medium2"]
   end
 end

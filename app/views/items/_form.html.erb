@@ -1,7 +1,5 @@
 <%= form_for @item, :html => {:id => 'item_form'} do |f| %>
   <%= render "items/hidden", f: f %>
-  <%#= @item.itemizable.sub_elements %>
-  <%#= select_tag :medium_type_id, options_from_collection_for_select(MediumType.all, :id, :name) %>
   <script type="text/javascript">
     function submitform(){
       $('#redirect_location').val(':edit');
@@ -14,12 +12,6 @@
       $('#item_item_type_id').val('item_type_id');
     }
   </script>
-  <div class="row">
-    <div class="col-md-2">
-      <%= f.label :medium_type %><br>
-      <%= f.text_field :sku %>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col-md-2">
@@ -35,7 +27,10 @@
 
   <div class="col-md-12">
     <h4>Properties for Items:</h4>
-    <% if @item.itemizable.present? %>
+
+      <%= f.label :itemizable %><br>
+      <%= f.collection_select :itemizable_id, MediumType.all, :id, :build_sub_elements_description, {:include_blank => true} %>
+      <% if @item.itemizable.present? %>
       <% @item.itemizable.sub_elements.each do |sub_element| %>
         <% sub_element.element_fields.each do |field| %>
           <%= render 'items/properties', f: f, parent: @item, field: field %>

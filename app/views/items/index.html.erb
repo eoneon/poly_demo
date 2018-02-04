@@ -5,7 +5,7 @@
 <% end %>
 
 <%= form_tag new_item_path, method: :get do %>
-  <%= select_tag :medium_type_id, options_from_collection_for_select(MediumType.all, :id, :name) %>
+  <%= select_tag :medium_type_id, options_from_collection_for_select(MediumType.all, :id, :build_sub_elements_description) %>
   <%= submit_tag "New Item", name: nil %>
 <% end %>
 
